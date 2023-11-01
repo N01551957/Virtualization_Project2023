@@ -1,0 +1,32 @@
+{%extends 'base.html' %}
+
+{% block head %}
+<title>ToDo List</title>
+{% endblock %}
+
+{% block body %}
+<div class="test">
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Date Added</th>
+            <th>Details</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>
+                <a href="">Delete</a>
+                <br>
+                <a href="">Update</a>
+            </td>
+        </tr>
+    </table>
+    <form action="/" method="POST">
+        <input type = "text" name = "name" />
+        <input type = "test" name = "date" />
+        <input type = "test" name = "details" />
+        <input type = "submit" value = "Submit" />
+    </form>
+</div>
+{% endblock %}
