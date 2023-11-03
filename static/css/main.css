@@ -3,3 +3,16 @@ body {
     font-family: 'Times New Roman', Times, serif;
     font-size: 11;
 }
+tr{
+    text-align: center;
+    padding: 5px;
+}
+td{
+    text-align: center;
+    padding: 5px;
+}
+
+form{
+    text-align: center;
+    padding: 5px;
+}
