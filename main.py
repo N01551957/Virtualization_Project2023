@@ -24,11 +24,12 @@ def home_page():
                               VALUES (%s,%s,%s)""",(task_name,task_date,details))
             mysql.connection.commit()
             cursor.close()
-            return 'success'
+            return render_template('page.html')
         except:
             return "There was an issue"
     else:
         return render_template('page.html')
+    #testing
 
 if __name__ == '__main__':
     app.run(debug = True,host='localhost', port=9999) 
