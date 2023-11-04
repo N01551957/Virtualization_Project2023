@@ -62,7 +62,7 @@ def Delete_Tasks():
     :return:
     """
     cursor = mysql.connection.cursor()
-    cursor.execute("""DELETE FROM virtualization_project.todo_list WHERE task_id > 0""")
+    cursor.execute("""DELETE FROM virtualization_project.todo_list WHERE task_id > 1""")
     mysql.connection.commit()
     cursor.close()
     return render_template('page.html')

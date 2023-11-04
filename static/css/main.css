@@ -2,6 +2,7 @@ body {
     margin: 0;
     font-family: 'Times New Roman', Times, serif;
     font-size: 11;
+    background: linear-gradient(0deg, #fff700 0%, #ffffff 101%);
 }
 h1{
     text-align: center;
@@ -10,9 +11,13 @@ h1{
 form{
     text-align: center;
     padding: 5px;
+    box-shadow: 5px 5px 10px 1px #000000;
+    background: linear-gradient(0deg, #4400ff 0%, #ffffff 100%);
 }
 table{
     width: 100%;
+    box-shadow: 5px 5px 10px 1px #000000;
+    background: linear-gradient(0deg, #4400ff 0%, #ffffff 100%);
 }
 td{
     text-align: center;
