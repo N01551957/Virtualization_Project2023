@@ -49,6 +49,23 @@ def Display_all_Tasks():
         return render_template('page.html', results=results)
     else:
         return render_template('page.html', "No students added so far")
+    
+@app.route('/Delete')
+def Delete_Tasks():
+    """
+    Function name: Display_all_students
+    Developer: Joseph Keaveny
+    Date: 12-10-23
+
+    This function connects to the mysql database and returns the students in the student table
+    :param connection:
+    :return:
+    """
+    cursor = mysql.connection.cursor()
+    cursor.execute("""DELETE FROM virtualization_project.todo_list WHERE task_id > 0""")
+    mysql.connection.commit()
+    cursor.close()
+    return render_template('page.html')
         
 if __name__ == '__main__':
     app.run(debug = True,host='localhost', port=9999)  
