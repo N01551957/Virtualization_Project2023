@@ -28,14 +28,27 @@ def home_page():
         except:
             return "There was an issue"
     else:
-        querry = "SELECT * FROM virtualization_project.todo_list;"
-        cursor = mysql.connection.cursor()
-        cursor.execute(querry)
-        results = cursor.fetchall()
-        if results:
-            return render_template('page.html', results=results)
-        else:
-            return "NO students added so far"
+        return render_template('page.html')
+
+@app.route('/Display')
+def Display_all_Tasks():
+    """
+    Function name: Display_all_students
+    Developer: Joseph Keaveny
+    Date: 12-10-23
+
+    This function connects to the mysql database and returns the students in the student table
+    :param connection:
+    :return:
+    """
+    querry = "SELECT * FROM virtualization_project.todo_list ORDER BY task_date;"
+    cursor = mysql.connection.cursor()
+    cursor.execute(querry)
+    results = cursor.fetchall()
+    if results:
+        return render_template('page.html', results=results)
+    else:
+        return render_template('page.html', "No students added so far")
         
 if __name__ == '__main__':
     app.run(debug = True,host='localhost', port=9999)  
