@@ -11,7 +11,7 @@ app.config['MYSQL_PASSWORD'] = 'root'
 app.config['MYSQL_DB'] = 'Virtualization_project'
  
 mysql = MySQL(app)
- 
+
 @app.route('/', methods=['POST','GET'])
 def home_page():
     if request.method == 'POST':
@@ -28,7 +28,14 @@ def home_page():
         except:
             return "There was an issue"
     else:
-        return render_template('page.html')
-
+        querry = "SELECT * FROM virtualization_project.todo_list;"
+        cursor = mysql.connection.cursor()
+        cursor.execute(querry)
+        results = cursor.fetchall()
+        if results:
+            return render_template('page.html', results=results)
+        else:
+            return "NO students added so far"
+        
 if __name__ == '__main__':
     app.run(debug = True,host='localhost', port=9999)  

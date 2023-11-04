@@ -6,28 +6,33 @@
 
 {% block body %}
 <div class="test">
-    <h1 style="text-align: center;">Task Manager</h1>
-    <table>
-        <tr>
-            <th>Task</th>
-            <th>Date Added</th>
-            <th>Details</th>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td>
-                <a href="">Delete</a>
-                <br>
-                <a href="">Update</a>
-            </td>
-        </tr>
-    </table>
+    <h1>Task Manager</h1>
     <form action="/" method="POST">
-        <input type = "text" name = "name" />
-        <input type = "test" name = "date" />
-        <input type = "test" name = "details" />
+        <label for="n1">Task</label>
+        <input type = "text" id="n1" name = "name" /><br>
+        <label for="d1">Date</label>
+        <input type = "test" id="d1" name = "date" /><br>
+        <label for="d2">Desc</label>
+        <input type = "test" id="d2" name = "details" /><br>
         <input type = "submit" value = "Submit" />
     </form>
+    <table>
+        <tr>
+            <td>
+                <th>Task</th>
+                <th>Date</th>
+                <th>Details</th>
+            </td>
+        </tr>
+        {% for result in results %}
+            <tr>
+                <td>
+                    {{result[1]}}
+                    {{result[2]}}
+                    {{result[3]}}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
 </div>
 {% endblock %}
