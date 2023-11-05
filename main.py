@@ -1,7 +1,6 @@
 from flask import Flask, render_template, url_for, request, redirect
 from flask_mysqldb import MySQL
 import mysql.connector
-from datetime import datetime
 
 app = Flask(__name__)
 
@@ -41,14 +40,17 @@ def Display_all_Tasks():
     :param connection:
     :return:
     """
-    querry = "SELECT * FROM virtualization_project.todo_list ORDER BY task_date;"
-    cursor = mysql.connection.cursor()
-    cursor.execute(querry)
-    results = cursor.fetchall()
-    if results:
-        return render_template('page.html', results=results)
-    else:
-        return render_template('page.html', "No students added so far")
+    try:
+        querry = "SELECT * FROM virtualization_project.todo_list ORDER BY task_date;"
+        cursor = mysql.connection.cursor()
+        cursor.execute(querry)
+        results = cursor.fetchall()
+        if results:
+            return render_template('page.html', results=results)
+        else:
+            return render_template('page.html')
+    except:
+        return render_template('page.html')
     
 @app.route('/Delete')
 def Delete_Tasks():
@@ -61,6 +63,7 @@ def Delete_Tasks():
     :param connection:
     :return:
     """
+    
     cursor = mysql.connection.cursor()
     cursor.execute("""DELETE FROM virtualization_project.todo_list WHERE task_id > 1""")
     mysql.connection.commit()
