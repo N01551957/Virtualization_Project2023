@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  python-flask-container:
+    build: ./virtualization_project/
+    ports:
+      - 9999:9999
+    networks:
+      - virtualization-project-network
+
+  mysql-database-container:
+    build: /virtualization-project-database/
+    ports:
+      - 3309:3309
+    environment:
+      MYSQL_DATABASE: 'Virtualization_Project'
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_ROOT_USER: 'root'
+      MYSQL_HOST: 'localhost'
+    volumes:
+      - virtualization-project-volume:/var/lib/mysql
+    networks:
+      - virtualization-project-network
+
+networks:
+  virtualization-project-network:
+volumes:
+  virtualization-project-volume:
