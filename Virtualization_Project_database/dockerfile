@@ -1,2 +1,3 @@
 FROM mysql:latest
-ADD database.sql  
+ADD database.sql .
+ 
