@@ -1,6 +1,5 @@
 from flask import Flask, render_template, url_for, request, redirect
 from flask_mysqldb import MySQL
-import mysql.connector
 
 app = Flask(__name__)
 
@@ -71,6 +70,6 @@ def Delete_Tasks():
     return render_template('page.html')
         
 if __name__ == '__main__':
-    app.run(debug = True,host='localhost', port=9999)  
+    app.run(debug = True,host="0.0.0.0")  
 
 #testing
