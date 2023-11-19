@@ -68,6 +68,11 @@ def Delete_Tasks():
     mysql.connection.commit()
     cursor.close()
     return render_template('page.html')
+
+@app.route('/Update')
+def update_task():
+
+    return render_template('page,html')
         
 if __name__ == '__main__':
     app.run(debug = True,host="0.0.0.0")  
