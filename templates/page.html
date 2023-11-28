@@ -23,6 +23,8 @@
         <input type = "submit" value = "Submit" />
     </form>     
 
+    <h2>Update Task</h2>
+
     <form action="/Update" method="POST">
         <label for="u1">Updated Task:</label>
         <input type="text" id="u1" name = "t1" /><br>
@@ -40,13 +42,15 @@
         <tr>
                 <th>Task</th>
                 <th>Date</th>
-                <th>Details</th>         
+                <th>Details</th>  
+                <th>task_id</th>       
         </tr>
     {% for result in results %}
         <tr>
             <td>{{result[1]}}</td>
             <td>{{result[2]}}</td>
             <td>{{result[3]}}</td>
+            <td>{{result[0]}}</td>    
         </tr>
     {% endfor %}
     </table>
