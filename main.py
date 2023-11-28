@@ -70,11 +70,22 @@ def Delete_Tasks():
     cursor.close()
     return render_template('page.html')
 
-@app.route('/Update')
+@app.route('/Update', methods=['POST','GET'])
 def update_task():
-
-    return render_template('page,html')
-        
+    if request.method == 'POST':
+        input1 = request.form["t1"]
+        input2 = request.form['input2']
+        input3 = request.form['input3']
+        input4 = request.form['input4']
+        cursor = mysql.connection.cursor()
+        cursor.execute ("""Update Virtualization_project.todo_list SET task_name = (%s),task_date = (%s),details = (%s)  
+                                WHERE task_id = (%s) """,(input1,input2,input3,input4))
+        mysql.connection.commit()
+        cursor.close()
+        return render_template('page.html')
+    else:
+        return render_template('page.html')
+            
 if __name__ == '__main__':
     app.run(debug = True,host="0.0.0.0")  
     #will need to change this line to work within a container, might need to make a new repository so everything can be seen
