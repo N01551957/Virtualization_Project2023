@@ -1,10 +1,8 @@
 #/bin/sh
-echo include a wait for for the docker files
-echo fix the sql dockerfile
-echo make /app dir in dockerfiles
-echo test containers individually
 
-commands:
+echo commands:
 echo sudo docker run -p 5000:5000 python_app
 echo sudo docker build -t python_app .
 echo sudo docker build -t mysql_db .
+echo docker-compose up
+echo docker-compose down

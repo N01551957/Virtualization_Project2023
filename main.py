@@ -3,10 +3,11 @@ from flask_mysqldb import MySQL
 
 app = Flask(__name__)
 
-app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_HOST'] = 'mysql-database-container'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = 'root'
 app.config['MYSQL_DB'] = 'Virtualization_project'
+app.config['MYSQL_DATABASE_PORT'] = '3306'
  
 mysql = MySQL(app)
 
@@ -40,7 +41,7 @@ def Display_all_Tasks():
     :return:
     """
     try:
-        querry = "SELECT * FROM virtualization_project.todo_list ORDER BY task_date;"
+        querry = "SELECT * FROM Virtualization_project.todo_list ORDER BY task_date;"
         cursor = mysql.connection.cursor()
         cursor.execute(querry)
         results = cursor.fetchall()
@@ -64,7 +65,7 @@ def Delete_Tasks():
     """
     
     cursor = mysql.connection.cursor()
-    cursor.execute("""DELETE FROM virtualization_project.todo_list WHERE task_id > 1""")
+    cursor.execute("""DELETE FROM Virtualization_project.todo_list WHERE task_id > 1""")
     mysql.connection.commit()
     cursor.close()
     return render_template('page.html')
