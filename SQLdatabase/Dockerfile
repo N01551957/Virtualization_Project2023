@@ -1,3 +1,3 @@
 FROM mysql:latest
-ADD ./database.sql /docker-entrypoint-initdb.d/
+ADD SQLdatabase/database.sql /docker-entrypoint-initdb.d/
  
