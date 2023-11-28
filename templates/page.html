@@ -11,7 +11,8 @@
             <a href="/Delete">Delete all</a>
             <a href="/Display">Display</a>  
             <a href="/Update">Update</a>
-        </tr>
+        </tr>     
+    
     <form action="/" method="POST">
         <label for="n1">Task</label>
         <input type = "text" id="n1" name = "name" /><br>
@@ -21,6 +22,19 @@
         <input type = "text" id="d2" name = "details" /><br>
         <input type = "submit" value = "Submit" />
     </form>     
+
+    <form action="/Update" method="POST">
+        <label for="u1">Updated Task:</label>
+        <input type="text" id="u1" name = "t1" /><br>
+        <label for="u2">Updated Date:</label>
+        <input type="text" id="u2" name = "input2" /><br>
+        <label for="u3">Updated Details:</label>
+        <input type="text" id="u3" name = "input3" /><br>
+        <label for="u4">Task ID:</label>
+        <input type="int" id="u4" name = "input4" /><br>
+        <input type="submit" value = "Submit" />
+    </form>   
+
     <table>
         <h1>Records:</h1>
         <tr>
