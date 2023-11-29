@@ -1,15 +1,14 @@
 pipeline{
   agent any
   stages { 
-    stage('building fronend image...') {
+    stage('building fronend image') {
       steps { 
         sh 'docker build -t n01551957/python_app:latest .'
           } 
         }
     stage('building backend image'){
-      agent { docker { image 'mysql:latest'}}
       steps{
-        sh 'mysql --version'
+        sh 'docker build -t n01551957/mysql_db:latest -f SQLdatabase/Dockerfile .'
       }
     }
     stage('Login') {
@@ -23,6 +22,7 @@ pipeline{
        steps {
              	withCredentials([usernamePassword(credentialsId: 'DockerHubID', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
         sh "docker push n01551957/python_app:latest"
+        sh "docker push n01551957/mysql_db:latest"
             }
        }
     }
