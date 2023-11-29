@@ -1,0 +1,12 @@
+﻿apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: virtualization_mysql_pv
+spec:
+  storageClassName: local-pv
+  capacity:
+    storage: 500Mi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /mnt/data

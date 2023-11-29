@@ -1,0 +1,28 @@
+﻿apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp
+  labels:
+    app: myapp  
+spec:
+  containers:
+  - name: python-flask-container
+    image: n01551957/python_app:latest
+    ports:
+    - containerPort: 5000
+  - name: mysql-database-container
+    image: n01551957/mysql_db:latest
+    ports:
+    - containerPort: 3306
+    env:
+    - name: MYSQL_DATABASE
+      value: Virtualization_project
+    - name: MYSQL_ROOT_PASSWORD
+      value: root
+    volumeMounts:
+    - name: virtualization-project-volume
+      mountPath: /var/lib/mysql
+  volumes:
+    - name: virtualization-project-volume
+      persistentVolumeClaim:
+        claimName: virtualization_mysql_pv_claim
