@@ -1,7 +1,7 @@
 ﻿apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: virtualization_mysql_pv_claim
+  name: virtualization-mysql-pv-claim
 spec:
   storageClassName: local-pv
   accessModes:

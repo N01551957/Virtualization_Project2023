@@ -1,7 +1,7 @@
 ﻿apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: virtualization_mysql_pv
+  name: virtualization-mysql-pv
 spec:
   storageClassName: local-pv
   capacity:

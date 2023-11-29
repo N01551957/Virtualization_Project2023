@@ -25,4 +25,4 @@ spec:
   volumes:
     - name: virtualization-project-volume
       persistentVolumeClaim:
-        claimName: virtualization_mysql_pv_claim
+        claimName: virtualization-mysql-pv-claim
