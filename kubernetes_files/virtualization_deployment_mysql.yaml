@@ -1,26 +1,23 @@
 ﻿apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp-deployed
+  name: myapp-mysql
   labels:
-    app: myapp  
+    app: myapp-mysql  
 spec:
   replicas: 1
   selector: 
     matchLabels: 
-      app: myapp
+      app: myapp-mysql
   template:
     metadata:
       labels:
-        app: myapp           
+        app: myapp-mysql         
     spec:
       containers:
-      - name: python-flask-container
-        image: n01551957/python_app:latest
-        ports:
-        - containerPort: 5000
       - name: mysql-database-container
         image: n01551957/mysql_db:latest
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3306
         env:
